@@ -1,0 +1,106 @@
+First time installation:
+------------------------
+https://help.github.com/articles/set-up-git
+
+
+Git bash Home directory location:
+--------------------------------
+Right click on 'Git Bash' applicaiton
+Select 'Properties' -> 'Shortcut' tab
+Path in the 'Target' field is the git bash Home directory
+
+
+Checking Your Settings (command line on Git bash)
+---------------------------------------------------
+$ git config --list
+
+
+GitHub ssh keys:
+----------------
+1. GitHub stores ssh keys to authenticate account. These keys are listed in 'https://github.com/settings/ssh'.
+2. The key should only be generated the first time for a machine based on github registered email address. When the key is generated, a prompt will show to store the key in the 'users/userName/.ssh/id_rsa' path (Win 7). It is vitally IMPORTANT to store the key in the suggested path and in exactly suggested name, i.e. id_rsa.
+3. Step 2 will produce a 'id_rsa' and a 'id_rsa.pub' files in the mentioned path.
+4. Open the 'id_rsa.pub' file in an editor and copy the key. At github, go to account settings, SSH Keys, add a key and paste this in the key box.
+
+The following command generates the ssh keys on Git Bash command line window:
+$ ssh-keygen -t rsa -C "mabz@donotemail.me"
+
+Following command adds the generated ssh key to the keychain:
+$ ssh-add C:/Users/Tanvir/.ssh/id_rsa 
+
+
+Checking GitHub authentication working (command line on Git bash)
+------------------------------------------------------------------
+run this command to evaluate the ssh is working:
+$ eval `ssh-agent` (to evaluate the ssh agent)
+
+run this command to check github responds to the ssh connection request:
+$ ssh git@github.com
+
+
+git-cheat-sheet:
+----------------
+http://www.git-tower.com/blog/git-cheat-sheet-detail/
+or 'cheat-sheet-large01.png'(current directory)
+
+
+Version controlling with git (local version controlling):
+---------------------------------------------------------
+Navigate to the location you want to version control:
+$ cd ~/Documents/ArabicLessons/ArabicLesson_WhatsAppGroup/
+
+Initialize versioning: 
+$ git init
+(note: this only version controls the contents in the directory, not the directory itself. To include the directory itself, either 'git init' in its parent directory, or use submodules)
+
+check versioning status (shows what is 'staged'/'unstaged')
+$ git status
+
+stage, i.e. prepare to commit, files:
+$ git add fileName
+or (to stage all changed files):
+$ git add .
+
+check changes in 'staged' files (files have to be already staged for this):
+$ git diff
+
+Commit the changes:
+$ git commit -m "commit message"
+
+To commit without staging (not a good practice as there's no reviewing of changes):
+$ git commit -a -m "commit message"
+
+To view all commits:
+$ git log
+
+
+
+Version controlling in GitHub:
+-------------------------------
+1. A github repository to contain the locally version controlled files needs to be first created in GitHub account (the repository name (in this case whatsAppArabicLessons) does not have to match with the local directory name). You can:
+  1.1. Either create the local repo first, then create the remote repo to 		push.
+  1.2. Or create the remote repo first, 'clone' it to the local directory     	       location (this will also create a directory by the name of the 		of the remote repository in the local directory), create/make changes 	and push to remote.
+
+Link the remote(GitHub) repo to your local git repo (assuming option 1.1 above):
+$ git remote add origin git@github.com:mahabrashid/WhatsAppArablicLessons.git
+
+Push the local repo onto GitHub repo:
+$ git push -u origin master
+
+
+
+submodulling - to group together similar modules in one place:
+--------------------------------------------------------------
+Use submodules:
+1. Create a repository for each module/project (already done above)
+2. Create a repository for the main project that will contain them.
+  2.1. create a remote repo 'AllArabicLessons' on GitHub. 
+  2.2. Clone it to MyDocuments:
+	$ git clone git@github.com:mahabrashid/AllArabicLessons.git
+	 - this will create directory 'AllArabicLessons' under MyDocuments.
+  2.3. navigate into this directory (cd ~/MyDocuments/AllArabicLessons)
+
+3. Add the modules/projects to the main repository as submodules:
+   $ git submodule add git@github.com:mahabrashid/AllArabicLessons.git
+
+
