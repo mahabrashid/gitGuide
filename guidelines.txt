@@ -101,6 +101,7 @@ Use submodules:
   2.3. navigate into this directory (cd ~/MyDocuments/AllArabicLessons)
 
 3. Add the modules/projects to the main repository as submodules:
-   $ git submodule add git@github.com:mahabrashid/AllArabicLessons.git
+   $ git submodule add git@github.com:mahabrashid/WhatsAppArablicLessons.git
+   $ git submodule add git@github.com:mahabrashid/QuranicArabicAcademyLessons.git
 
 
