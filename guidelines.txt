@@ -17,6 +17,9 @@ $ git config --list
 
 GitHub ssh keys:
 ----------------
+Consult below website to see how an existing ssh key pair can be used, and in case there isn't any existing ssh key pair then how to generate and add it to the key chain to connect to github.
+https://help.github.com/articles/generating-an-ssh-key/
+
 1. GitHub stores ssh keys to authenticate account. These keys are listed in 'https://github.com/settings/ssh'.
 2. The key should only be generated the first time for a machine based on github registered email address. When the key is generated, a prompt will show to store the key in the 'users/userName/.ssh/id_rsa' path (Win 7). It is vitally IMPORTANT to store the key in the suggested path and in exactly suggested name, i.e. id_rsa.
 3. Step 2 will produce a 'id_rsa' and a 'id_rsa.pub' files in the mentioned path.
