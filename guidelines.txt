@@ -64,6 +64,11 @@ $ git add fileName
 or (to stage all changed files):
 $ git add .
 
+undo git add command or remove staged files:
+$ git reset fileName
+or (to removed all staged files):
+$ git reset
+
 check changes in 'staged' files (files have to be already staged for this):
 $ git diff
 
