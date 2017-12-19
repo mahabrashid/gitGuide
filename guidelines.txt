@@ -92,6 +92,13 @@ Version controlling in GitHub:
 Link the remote(GitHub) repo to your local git repo (assuming option 1.1 above):
 $ git remote add origin git@github.com:mahabrashid/WhatsAppArablicLessons.git
 
+To check diff between local and remote, follow these steps in sequence:
+$ git fetch origin master (this will fetch, not pull, the content on the remote)
+$ git diff origin/master (will show detailed diff)
+$ git diff --name-only origin/master (will show diff with file names only) 
+(then if you're happy, you can merge the diff with this):
+$ git merge origin/master
+
 Push the local repo onto GitHub repo:
 $ git push -u origin master
 
