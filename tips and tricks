@@ -1,0 +1,13 @@
+Changing a commit message
+--------------------------
+1. Commit has not been pushed online
+    If the commit only exists in your local repository and has not been pushed to GitHub, you can amend the commit message with the git commit --amend command.
+    On the command line, navigate to the repository that contains the commit you want to amend.
+    Type git commit --amend and press Enter.
+    In your text editor, edit the commit message and save the commit.
+  
+2. Amending the message of the most recently pushed commit
+    Follow the steps above to amend the commit message.
+    Use the push --force command to force push over the old commit. Ex: git push --force [example-branch]
+
+More info: https://help.github.com/articles/changing-a-commit-message/
