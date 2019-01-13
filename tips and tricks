@@ -1,5 +1,6 @@
+==========================
 Changing a commit message
---------------------------
+==========================
 1. Commit has not been pushed online
     If the commit only exists in your local repository and has not been pushed to GitHub, you can amend the commit message with the git commit --amend command.
     On the command line, navigate to the repository that contains the commit you want to amend.
@@ -11,3 +12,32 @@ Changing a commit message
     Use the push --force command to force push over the old commit. Ex: git push --force [example-branch]
 
 More info: https://help.github.com/articles/changing-a-commit-message/
+
+
+===========================================
+Unstage any staged changes in given files
+===========================================
+git reset -- <filePath>, <filePath>
+    this will unstage any staged changes for the given file(s).
+
+
+===============================================
+Remove a previous tracked file from versioning
+===============================================
+git rm --cached <filePath>
+    this is used to remove a file from the index. In the case where the file is already in the repo, git rm --cached will remove the file 
+    from the index, leaving it in the working directory (local) and a commit will now remove it from the repo as well. 
+    Basically, after the commit, you would have unversioned the file and kept a local copy.
+
+
+==========================================
+Check difference between local and github
+==========================================
+assuming you've got a remote called origin that refers to your GitHub repository, do...
+git fetch origin
+git diff master origin/master
+
+If you're not interested in the details that git diff outputs you can just run git cherry which will output a list of commits 
+your remote tracking branch has ahead of your local branch...
+git fetch origin
+git cherry master origin/master
